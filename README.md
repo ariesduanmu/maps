@@ -1,3 +1,3 @@
 # maps
 
-Gnerate and solve map games
+Gnerate and solve map games and beautiful maps
