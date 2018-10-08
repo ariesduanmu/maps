@@ -36,8 +36,11 @@ def construct_path(point, meta):
     return route
 
 if __name__ == "__main__":
-    maze = Maze((99,99))
+    maze = Maze((9,9))
     maze()
+    print(maze.board)
+    print(maze.start_point)
+    print(maze.end_point)
     board = [b[:] for b in maze.board]
     route = bfs_solver(maze.board, maze.start_point, maze.end_point)
     for i, j in route:
