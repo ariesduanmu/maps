@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 import sys
 sys.path.append("..")
-from queue import Queue
+from collections import deque
 from mazeGenerator.maze import Maze
 from helper.helper import generate_image
 
 def bfs_solver(board, start, end):
     n, m = len(board), len(board[0])
-    open_points = Queue()
+    open_points = deque()
     meta = {}
     close_points = set()
 
-    open_points.put(start)
+    open_points.append(start)
 
-    while not open_points.empty():
-        point = open_points.get()
+    while open_points:
+        point = open_points.popleft()
         if point == end:
             return construct_path(end, meta)
         
@@ -23,7 +23,7 @@ def bfs_solver(board, start, end):
         for i, j in directions:
             if 0 <= r+i < n and 0 <= c+j < m:
                 if board[r+i][c+j] == 2 and (r+i, c+j) not in close_points:
-                    open_points.put((r+i,c+j))
+                    open_points.append((r+i,c+j))
                     meta[(r+i,c+j)] = (r,c)
         close_points.add(point)
 

@@ -23,8 +23,8 @@ bfsSolver ((i,j):xs) closed meta
 
 
 constructPath (i,j) meta route
-    | (length points) > 0 = (constructPath (head points) meta (route++[(head points)]))
-    | otherwise = route
+    | (length points) > 0 = (constructPath (head points) meta (route++[(i,j)]))
+    | otherwise = route++[(i,j)]
     where points = [(x,y) | ((a,b),(x,y)) <- meta, (a,b) == (i,j)]
 
 -- bfsSolver [start] [] []
