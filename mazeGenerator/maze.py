@@ -197,10 +197,8 @@ class RDMaze():
         hole_3 = choice([(i,x) for i in range(y+1,ry)])
         hole_4 = choice([(i,x) for i in range(ly+1,y)])
 
-        print(hole_1,hole_2,hole_3,hole_4)
 
         holes = sample([hole_1,hole_2,hole_3,hole_4],k=3)
-        print(holes)
 
         for hole in holes:
             i, j = hole

@@ -6,6 +6,9 @@ from collections import namedtuple
 Position = namedtuple("Position", ["lx","ly","rx","ry"])
 
 class Room():
+    '''
+    Sperate by space
+    '''
     def __init__(self, size, room_number=20, min_room_space=(5,5)):
         width, height = size
         self.width = width - 1 + width%2
@@ -91,7 +94,7 @@ class Room():
         return "\n".join("".join("." if i == 2 else " " for i in b) for b in self.board)
 
 if __name__ == "__main__":
-    room = Room(100,100)
+    room = Room((9,9))
     room.generate()
     print(room)
 
