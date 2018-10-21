@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 import sys
 sys.path.append("..")
-from helper.helper import generate_image
+from helper.helper import generate_image, generate_colorful_image
 from dungeon.random_room import random_rooms
 from pprint import pprint
 from queue import Queue
 from random import choice, sample
 
+'''
+Recursive division method and bird random room
+'''
 def corridor(board):
     row, column = len(board), len(board[0])
 
@@ -37,14 +40,12 @@ def split_room(board, room):
     xs = [i for i in range(lx+2,rx,2) if board[ly][i] == 0 and board[ry][i] == 0]
     ys = [i for i in range(ly+2,ry,2) if board[i][lx] == 0 and board[i][rx] == 0]
      
-    print(xs, ys)
+
     if len(xs) == 0 or len(ys) == 0:
         return None
 
     x = choice(xs)
     y = choice(ys)
-
-    print(x,y)
 
     for i in range(lx+1,rx):
         if board[y][i] == 1:
@@ -91,7 +92,7 @@ if __name__ == "__main__":
     board = random_rooms(num_rooms, (r,c))
     # print(board)
     board = corridor(board)
-    generate_image(board, (990,990))
+    generate_colorful_image(board, (990,990))
     
 
 
