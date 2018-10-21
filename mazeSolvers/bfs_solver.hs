@@ -1,6 +1,5 @@
 -- @Author: ariesduanmu
 
-
 maze = [[0, 0, 0, 0, 0, 0, 0, 0, 0], 
         [0, 2, 2, 2, 2, 2, 2, 2, 0], 
         [0, 2, 0, 0, 0, 0, 0, 0, 0], 
@@ -28,5 +27,6 @@ constructPath (i,j) meta route
     | (length points) > 0 = (constructPath (head points) meta (route++[(i,j)]))
     | otherwise = route++[(i,j)]
     where points = [(x,y) | ((a,b),(x,y)) <- meta, (a,b) == (i,j)]
+
 
 -- bfsSolver [start] [] []

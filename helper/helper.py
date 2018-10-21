@@ -13,7 +13,7 @@ def generate_image(board, size, output_filename="maze.png"):
             if board[i][j] == 2:
                 amplify_dot(image_data, i, j, a)
             if board[i][j] == 1:
-                amplify_dot(image_data, i, j, a, 100)
+                amplify_dot(image_data, i, j, a)
                 
     maze_img = Image.fromarray(np.asarray(dtype=np.dtype('uint8'),a=image_data), mode='L').convert('1')
     maze_img.save(output_filename)
